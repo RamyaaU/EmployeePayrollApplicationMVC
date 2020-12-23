@@ -7,6 +7,7 @@ using System.Web;
 
 namespace EmployeePayrollMVC.Models
 {
+
     public class Salary
     {
         [Key]
