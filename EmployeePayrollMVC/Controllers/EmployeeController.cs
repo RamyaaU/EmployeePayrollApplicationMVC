@@ -10,7 +10,9 @@ namespace EmployeePayrollMVC.Controllers
 {
     public class EmployeeController : Controller
     {
-
+        /// <summary>
+        /// The database
+        /// </summary>
         public ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employee
@@ -19,6 +21,11 @@ namespace EmployeePayrollMVC.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Registers the employee.
+        /// </summary>
+        /// <param name="employee">The employee.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult RegisterEmployee(RegisterEmpRequestModel employee)
         {
@@ -36,6 +43,11 @@ namespace EmployeePayrollMVC.Controllers
             return View("Register", employee);
         }
 
+        /// <summary>
+        /// Registers the employee service.
+        /// </summary>
+        /// <param name="employee">The employee.</param>
+        /// <returns></returns>
         public bool RegisterEmployeeService(RegisterEmpRequestModel employee)
         {
             try
@@ -71,12 +83,21 @@ namespace EmployeePayrollMVC.Controllers
             }
         }
 
+        /// <summary>
+        /// Employees the list.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult EmployeeList()
         {
             List<EmployeeViewModel> list = GetAllEmployee();
             return View(list);
         }
 
+
+        /// <summary>
+        /// Gets all employee.
+        /// </summary>
+        /// <returns></returns>
         public List<EmployeeViewModel> GetAllEmployee()
         {
             try
